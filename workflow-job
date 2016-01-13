@@ -142,7 +142,7 @@ public class Containers implements Serializable {
 
 def jarPath = '/destination/james-server-cassandra-guice-3.0.0-beta5-SNAPSHOT.jar' 
 def libPath = '/destination/james-server-cassandra-guice-3.0.0-beta5-SNAPSHOT.lib' 
-def zipPath = '/destinationJava6/james-server-app-3.0.0-beta5-SNAPSHOT-app.zip'
+def zipPath = '/destination/james-server-app-3.0.0-beta5-SNAPSHOT-app.zip'
 def cliJarPath = '/destination/james-server-cli-3.0.0-beta5-SNAPSHOT.jar'
 def cliLibPath = '/destination/james-server-cli-3.0.0-beta5-SNAPSHOT.lib'
 def keystorePath = '/keys/keystore'

@@ -299,17 +299,8 @@ flows["${sha1}"] = {
         stage "Java 6 integration tests"
         node {
             sh "cd dockerfiles/run/spring; docker cp ${containers.jamesCompileJava6}:${zipPath} destination"
-
-            sh "docker run --detach=true --name=${containers.cassandra} ${images.cassandra}"
-            try {
-               waitForCommandSuccess("docker exec ${containers.cassandra} cqlsh -e 'describe columnfamily system.local;'", maxRetries)
-            } catch (Exception e) {
-                sh "docker logs ${containers.cassandra}"
-            }
-            sh "docker run --detach=true --name=${containers.elasticSearch} ${images.elasticSearch}"
-
             sh "cd dockerfiles/run/spring; docker build --tag=${images.jamesJava6} ."
-            sh "docker run --detach=true --name=${containers.jamesJava6} --hostname ${hostname} --expose=143 --publish-all=true ${jamesLinks} ${images.jamesJava6}"
+            sh "docker run --detach=true --name=${containers.jamesJava6} --hostname ${hostname} --expose=143 --publish-all=true ${images.jamesJava6}"
     
             echo 'Waiting for James server to be deployed'
             try {
